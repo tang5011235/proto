@@ -1,0 +1,17 @@
+//Copyright (c) 2019. cqxiaomi.com Inc. All rights reserved.
+//
+// @author <a href="ww@cqxiaomi.com">wanghao</a>
+// @version 1.0.0,  06-21-2019
+//
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.cqxiaomi.iam.app.policy";
+option objc_class_prefix = "IAP";
+package iam.app.policy;
+
+import "google/protobuf/empty.proto";
+
+service PolicyService {
+    rpc GetPolicies (google.protobuf.Empty) returns (google.protobuf.Empty);
+}

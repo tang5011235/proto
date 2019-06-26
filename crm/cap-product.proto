@@ -1,0 +1,57 @@
+//Copyright (c) 2019. cqxiaomi.com Inc. All rights reserved.
+//
+// @author <a href="huangcheng@gmail.com">huangcheng</a>
+// @version 1.0.0, 06-25-2019
+//
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package="com.cqxiaomi.crm.app.product";
+option objc_class_prefix="CAP";
+package crm.app.product;
+
+import "google/protobuf/empty.proto";
+
+service ProductService{
+    rpc GetProductList(GetProductListRequest) returns (GetProductListResponse);
+}
+
+//产品列表请求实体
+message GetProductListRequest {
+    //公司ID
+    string compid = 1;
+    //产品状态
+    string status = 2;
+    //重要等级
+    string grade = 3;
+    //产品分类ID
+    string categoryid = 4;
+    //请求页数
+    int32 pageindex = 5;
+    //每页条数
+    int32 pagesize = 6;
+}
+
+//产品列表响应实体
+message GetProductListResponse {
+    //总条数,用于分页
+    int32 total = 1;
+    //产品信息
+    repeated ProductInfo prodinfo = 2;
+}
+
+//产品信息
+message ProductInfo {
+    //产品ID
+    string prodid = 1;
+    //产品名称
+    string genericname = 2;
+    //生产厂商
+    string manufacturer = 3;
+    //规格
+    string specification = 4;
+    //重要等级
+    string grade = 5;
+    //是否有效
+    int32 status = 6;
+}
